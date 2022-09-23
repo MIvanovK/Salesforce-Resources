@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=550,maximum-scale=1,initial-scale=1.0">
+		<link rel="stylesheet" href="style.css">
+		<meta http-equiv="Content-Type" content="text/html,charset=ISO-8859-1">
+		<script src="jquery-3.4.1.min.js"></script>
+		<script src="main.js"></script>
+
+	</head>
+	<body style="margin: 5px; width: 630px; height: 550px;" class="bnsn bnsn-dark">
+		<div class="ui-top-right-corner ui-logo mouse-pointer" ></div>
+		<div id="container" class="content">
+			<ul class="nav nav-tabs" role="tablist" id="tabHeader"> 
+				<li role="presentation " class="borderTab">
+					<button href="#ImagesTab" tabindex="-1" aria-controls="ImagesTab" role="tab" data-toggle="tab" id="ImagesTab"><span class="fa fa-sitemap" >&nbsp;</span> <i18n>Images</i18n></button>
+				</li>
+				<li role="presentation" class="borderTab">
+					<button href="#LabelsTab" tabindex="-1" aria-controls="LabelsTab" role="tab" data-toggle="tab" id="LabelsTab"><span class="fa fa-users" >&nbsp;</span> <i18n>Labels</i18n></button>
+				</li>
+				<li>
+					<div id="floatRight">
+						Copied to Clipboard!
+					</div>
+				</li>
+			</ul>
+		</div> 
+
+		<div class="ui-footer" style="border-top: 1px solid grey; margin-bottom: 10px; margin-top: 10px;">
+			<div id="loading">
+				<img src="./img/spin.gif" alt="" width="30px" height="30px">
+			</div>
+			<div id="appendItems">
+				
+			</div>
+			<div id="appendTable">
+				<table class="myTable">
+					<div class="headerTable">
+						<div>
+							<b>Name</b>
+							<button id='sortLabels'>▲</button>
+							<button id='sortLabelsDesc'>▼</button>
+						</div>
+						<div><b>Value</b></div>
+					</div>
+					<tbody id="appendTableItems">
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- actions limit hit overlay -->
+		<div class="ui-console-overlay-container" style="display:none">
+			<div class="ui-console-overlay-dom-container" id="_actionsLimitContent">
+			</div>
+		</div>
+	</body>
+</html>
