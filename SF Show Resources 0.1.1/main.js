@@ -100,7 +100,7 @@ function getSFData(option) {
                             if(validar){
                                 prefijos.push($(this).html());
                             }
-                            if($(this).text() == 'Cache Control' || $(this).text() == 'Control de caché'){ // Diccionario - contains(Control de cache en Varios idiomas)
+                            if($(this).text() == 'Cache Control' || $(this).text() == 'Control de caché'){ // Append more languages . . .
                                 validar = true;
                             } 
                         })
@@ -177,7 +177,7 @@ function getSFData(option) {
                                     prefijos.push($(this).html());
                                 }
                             }
-                            if($(this).text() == 'Language' || $(this).text() == 'Idioma'){
+                            if($(this).text() == 'Language' || $(this).text() == 'Idioma'){ // Append more languages . . .
                                 validar = true;
                             }
                         });
