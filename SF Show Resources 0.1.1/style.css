@@ -86,9 +86,16 @@ ul li button:focus {
   text-align: center;
 }
 .headerTable div:nth-child(-2n+2){
-  width: 68%;
+  width: 60%;
   background-color: #9ab0e0;
   text-align: center;
+}
+#newLabelBt{
+  text-align: center;
+  background-color: #5a82d7;
+  color: white;
+  cursor: pointer;
+  width: 8%;
 }
 .tableBorder th{
   border-bottom: 1px solid black;

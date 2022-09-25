@@ -53,6 +53,8 @@ function getSFData(option) {
         var completeUrl = 'error';
         var partialUrl = '';
         var urlSectionImage = '';
+        var urlNewImage = '';
+        var urlNewLabel = '';
 
         if(url.includes('lightning.force.com')){
             var urlSection = url.substring(0, url.lastIndexOf('.lightning.force.com/'));
@@ -60,11 +62,16 @@ function getSFData(option) {
             partialUrl = urlSection + urlResource;
             urlSectionImage = urlSection;
 
+            urlNewLabel = urlSection + '.lightning.force.com/lightning/setup/ExternalStrings/page?address=%2F101%2Fe%3FretURL%3D%252F101'; // Link Button (New label)
+            urlNewImage = urlSection + '.lightning.force.com/lightning/setup/StaticResources/page?address=%2F081%2Fe%3FretURL%3D%252F081'; // Link Button (New Image)
         }else if(url.includes('my.salesforce.com')){
             var urlSection = url.substring(0, url.lastIndexOf('.my.salesforce.com/'));
             completeUrl = urlSection + urlListResources;
             partialUrl = urlSection + urlResource;
             urlSectionImage = urlSection;
+
+            urlNewLabel = urlSection + '.my.salesforce.com/101/e?retURL=%2F101'; // Link Button (New label)
+            urlNewImage = urlSection + '.my.salesforce.com/081/e?retURL=%2Fapexpages%2Fsetup%2FlistStaticResource.apexp'; // Link Button (New Image)
         }
 
         if(completeUrl != 'error'){
@@ -72,7 +79,17 @@ function getSFData(option) {
             switch (option){
                 case 'images':   
                     document.getElementById('loading').style= 'display: block;'; // Show Spinner
-                    document.getElementById('appendItems').style = 'display: none;'; // Hide div block     
+                    document.getElementById('appendItems').style = 'display: none;'; // Hide div block    
+                    var divNewImg = document.createElement('div'); // Button (New image)
+                        divNewImg.style = 'display: flex; padding-bottom: 10px; justify-content: flex-end; padding-right: 10px;';
+                    var divNewChild = document.createElement('div');
+                        divNewChild.innerText = 'New';
+                        divNewChild.style = 'background-color: #5a82d7; color: white; cursor: pointer; padding-left: 10px; padding-right: 10px;';
+                        divNewChild.addEventListener("click", function(){ // Button (New Label)
+                            window.open(urlNewImage, '_blank').focus();
+                        });
+                        divNewImg.appendChild(divNewChild);
+                    document.getElementById('appendItems').appendChild(divNewImg);
 
                     // Retrieve all static resources (images)
                     $.get(completeUrl + '?thePage%3AtheTemplate%3Aj_id6%3Alsi=-7').then(function (html){
@@ -145,6 +162,9 @@ function getSFData(option) {
                     document.getElementsByClassName('headerTable')[0].style = 'display: none;'; // Hide table header
                     document.getElementById('loading').style= 'display: block;'; // Show Spinner
                     document.getElementById('appendTableItems').style = 'display: none;'; // Hide div block
+                    document.getElementById('newLabelBt').addEventListener("click", function(){ // Button (New Label)
+                        window.open(urlNewLabel, '_blank').focus();
+                    });
 
                     $.get(completeUrl).then(function (html){
                         var $mainbar = $(html).find('.list').find('th');
